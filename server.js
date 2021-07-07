@@ -3,6 +3,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const db = require('./db/db.json');
+// creates 6-character unique id
+const nid = require('nid');
 
 
 const app = express();
@@ -10,8 +12,6 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
 
 // Routes
 
@@ -27,16 +27,15 @@ app.get('/api/notes', (req, res) => res.json(db));
 
 // create new note
 app.post('/api/notes', (req, res) => {
-    const newNote = req.body;
+    const newNote = {
+        id: nid(),
+        title: req.body.title,  
+        text: req.body.text
+    }
+    // db.push(newNote);
 
-    // Using a RegEx Pattern to remove spaces from newNote title
-    newNote.title = newNote.title.replace(/\s+/g, '').toLowerCase();
-    console.log(newNote);
-    db.push(newNote);
     res.json(newNote);
-})
-
-
+});
 
 // Listener
 app.listen(PORT, () => {
