@@ -12,9 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-// array of notes
-let notesDb = [];
-
 // ROUTES
 
 // '/' works, '*' blocks the notes res, but not the test res????
@@ -28,8 +25,12 @@ app.get('/test', (req, res) => res.sendFile(path.join(__dirname, 'public/test.ht
 // shows all saved notes
 app.get('/api/notes', (req, res) => res.json(notesDb));
 
-// create new note and push it to notesDb array
+// read db.json for saved notes, get new note and push it into file
 app.post('/api/notes', (req, res) => {
+
+    let notesDb = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    console.log(notesDb);
+    
     const newNote = {
         id: nid(),
         title: req.body.title,  
@@ -37,9 +38,10 @@ app.post('/api/notes', (req, res) => {
     }
 
     console.log(newNote);
-
     notesDb.push(newNote);
     
+    fs.writeFileSync("./db/db.json", JSON.stringify(notesDb));
+
     res.json(newNote);
 });
 
