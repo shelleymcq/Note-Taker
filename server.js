@@ -2,6 +2,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const db = require("./db/db.json")
 // creates unique 6-character id
 const nid = require('nid');
 
@@ -10,6 +11,8 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("./public"));
+
 
 
 // ROUTES
@@ -23,13 +26,12 @@ app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes
 app.get('/test', (req, res) => res.sendFile(path.join(__dirname, 'public/test.html')));
 
 // shows all saved notes
-app.get('/api/notes', (req, res) => res.json(notesDb));
+app.get('/api/notes', (req, res) => res.json(db));
 
-// read db.json for saved notes, get new note and push it into file
+// read db.json for saved notes and push new note into file
 app.post('/api/notes', (req, res) => {
 
     let notesDb = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    console.log(notesDb);
     
     const newNote = {
         id: nid(),
@@ -37,10 +39,11 @@ app.post('/api/notes', (req, res) => {
         text: req.body.text
     }
 
-    console.log(newNote);
     notesDb.push(newNote);
-    
+
     fs.writeFileSync("./db/db.json", JSON.stringify(notesDb));
+
+    console.log(newNote, "New note added successfuly");
 
     res.json(newNote);
 });
