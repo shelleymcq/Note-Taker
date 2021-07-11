@@ -45,7 +45,7 @@ app.post('/api/notes', (req, res) => {
 
     console.log(note, "New note added successfuly");
 
-    res.json(note);
+    res.json(true);
 });
 
 
