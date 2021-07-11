@@ -27,24 +27,25 @@ app.get('/test', (req, res) => res.sendFile(path.join(__dirname, 'public/test.ht
 // shows all saved notes
 app.get('/api/notes', (req, res) => res.json(db));
 
-// read db.json for saved notes and push new note into file
-app.post('/notes', (req, res) => {
+// read db.json for saved notes, gets 'body', and pushes new note into file
+app.post('/api/notes', (req, res) => {
 
     let notesDb = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     
-    const newNote = {
+    // assigns unique id to note
+    const note = {
         id: nid(),
         title: req.body.title,  
         text: req.body.text
     }
 
-    notesDb.push(newNote);
+    notesDb.push(note);
 
     fs.writeFileSync("./db/db.json", JSON.stringify(notesDb));
 
-    console.log(newNote, "New note added successfuly");
+    console.log(note, "New note added successfuly");
 
-    res.json(newNote);
+    res.json(note);
 });
 
 
