@@ -52,7 +52,7 @@ https://notetaker-exp.herokuapp.com/
 ## Contributors
 Please contact me via the email below or create a pull request on a new branch if you would like to contribute to the project.
 ## Future Considerations
-The functionality of the app could be improved by allowing the user to retrieve deleted notes.
+The functionality of the app could be improved by allowing the user to edit saved notes or retrieve deleted notes.
 ## Questions 
 #### Please contact me by email.
 
