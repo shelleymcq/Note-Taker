@@ -14,24 +14,25 @@ This application allows the user to enter, save, and delete notes. It uses an Ex
 * WHEN I click on the Save icon 
 * THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes 
 * WHEN I click on an existing note in the list in the left-hand column 
-* THEN that note appears in the right-hand column WHEN I click on the Trash icon next to a saved note THEN the note is deleted from the list in the left-hand column
+* THEN that note appears in the right-hand column 
+* WHEN I click on the Trash icon next to a saved note 
+* THEN the note is deleted from the list in the left-hand column
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [Contributors](#Contributors)
-* [Testing](#Testing)
 * [Questions](#Questions)
 ## Installation
 Download all files to your local environment, install Node.js if not already installed, and then the dependencies (express, fs, path, nid).
 ## Usage
 The app can be run from the command line or you can use a platform such as Heroku to deploy the application.
-Application Homepage
+#### Application Homepage
 ![notes homepage](./readme-images/homepage.png)
-Notes Page
+#### Notes Page
 ![notes page](./readme-images/notes-empty.png)
-Enter Notes
+#### Enter Notes
 ![notes page](./readme-images/notes-entry.png)
-Delete Notes
+#### Delete Notes
 ![notes page](./readme-images/notes-delete.png)
 
 
@@ -50,6 +51,6 @@ Please contact me via the email below or create a pull request on a new branch i
 ## Future Considerations
 The functionality of the app could be improved by allowing the user to retrieve deleted notes.
 ## Questions 
-#### To contribute, please contact me by email.
+#### Please contact me by email.
 
 https://github.com/shelleymcq or email me at shelleymcq.dev@gmail.com
