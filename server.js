@@ -15,19 +15,19 @@ app.use(express.static("./public"));
 
 // ROUTES
 
-// '/' works, '*' blocks the notes res, but not the test res????
+// '/' works, '*' blocks the notes route, but not the test route????
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 
-// sends the user to the notes page
+// send the user to the notes page
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, '/public/notes.html')));
 
 // test page
 app.get('/test', (req, res) => res.sendFile(path.join(__dirname, 'public/test.html')));
 
-// shows all saved notes
+// show all saved notes
 app.get('/api/notes', (req, res) => res.json(db));
 
-// posts the note to the application
+// post the note to the application
 app.post('/api/notes', (req, res) => {
 
     // assigns unique id to note
