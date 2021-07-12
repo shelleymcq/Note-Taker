@@ -34,14 +34,24 @@ app.post('/api/notes', (req, res) => {
     const note = req.body;
 
     note.id = nid();
-
+    
+    // push the note to the db.json file
     db.push(note);
-
     console.log(note, "New note added successfuly");
-
     res.json(true);
 });
 
+// delete a note
+app.delete('/api/notes/:id', (req, res) => {
+    const deleteId = req.params.id;
+
+    for (let i = 0; i < db.length; i++) {
+        if (db[i].id === deleteId) {
+            db.splice([i], 1)
+        }
+    }
+    res.end();
+})
 
 // Listener
 app.listen(PORT, () => {
