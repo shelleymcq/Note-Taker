@@ -26,6 +26,9 @@ This application allows the user to enter, save, and delete notes. It uses an Ex
 Download all files to your local environment, install Node.js if not already installed, and then the dependencies (express, fs, path, nid).
 ## Usage
 The app can be run from the command line or you can use a platform such as Heroku to deploy the application.
+
+### *Deployed App*
+https://notetaker-exp.herokuapp.com/
 #### Application Homepage
 ![notes homepage](./readme-images/homepage.png)
 #### Notes Page
