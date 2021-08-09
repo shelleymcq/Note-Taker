@@ -3,7 +3,7 @@
 ## Licensing:
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description
-This application allows the user to enter, save, and delete notes. It uses an Express.js back end and saves and retrieve note data from a JSON file. It was created to meet the following acceptance criteria: 
+This application allows the user to enter, save, and delete notes. It uses an Express.js back end and saves and retrieves note data from a JSON file. It was created to meet the following acceptance criteria: 
 * GIVEN a note-taking application 
 * WHEN I open the Note Taker 
 * THEN I am presented with a landing page with a link to a notes page 
